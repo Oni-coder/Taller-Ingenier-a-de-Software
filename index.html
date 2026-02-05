@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Veterinaria Huellas</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<header>
+  <h1>🐾 Huellas</h1>
+
+  <nav id="menu">
+    <a href="#home">Inicio</a>
+    <a href="#services">Servicios</a>
+    <a href="#booking">Reservar</a>
+    <a href="#contact">Contacto</a>
+  </nav>
+
+  <button id="burger">☰</button>
+</header>
+
+<section id="home">Home</section>
+
+<section id="services">
+  <div id="servicesGrid"></div>
+</section>
+
+<section id="booking">
+  <form id="bookingForm">
+
+    <select id="serviceSelect"></select>
+
+    <select id="professionalTypeSelect">
+      <option value="">Tipo profesional</option>
+      <option value="vet">Veterinario</option>
+      <option value="est">Estética</option>
+    </select>
+
+    <input type="date" id="dateInput">
+    <input type="time" id="timeInput">
+
+    <button type="submit">Reservar</button>
+
+  </form>
+
+  <p id="bookingMessage"></p>
+</section>
+
+<section id="contact">Contacto</section>
+
+<footer>© Huellas</footer>
+
+<script src="src/app.js"></script>
+</body>
+</html>
