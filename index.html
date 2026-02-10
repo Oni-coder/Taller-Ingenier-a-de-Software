@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Veterinaria Huellas</title>
@@ -9,50 +10,110 @@
 
 <body>
 
-<header>
-  <h1>🐾 Huellas</h1>
+  <header>
+    <h1>🐾 Huellas</h1>
 
-  <nav id="menu">
-    <a href="#home">Inicio</a>
-    <a href="#services">Servicios</a>
-    <a href="#booking">Reservar</a>
-    <a href="#contact">Contacto</a>
-  </nav>
+    <nav id="menu">
+      <a href="#home">Inicio</a>
+      <a href="#services">Servicios</a>
+      <a href="#booking">Reservar</a>
+      <a href="#contact">Contacto</a>
+      <a href="#login">Login</a>
+    </nav>
 
-  <button id="burger">☰</button>
-</header>
+    <button id="burger">☰</button>
+  </header>
 
-<section id="home">Home</section>
+  <section id="home">Home</section>
 
-<section id="services">
-  <div id="servicesGrid"></div>
-</section>
+  <section id="services">
+    <div id="servicesGrid"></div>
+  </section>
+  <section id="booking">
+    <form id="bookingForm">
 
-<section id="booking">
-  <form id="bookingForm">
+      <!-- Servicio -->
 
-    <select id="serviceSelect"></select>
+      <label for="serviceSelect">Servicio</label>
+      <select id="serviceSelect" required>
+        <option value="">Seleccione un servicio</option>
+        <option value="corte">Corte de pelo</option>
+        <option value="banio">Baño</option>
+        <option value="consulta">Consulta veterinaria</option>
+        <option value="control">Control general</option>
+      </select>
 
-    <select id="professionalTypeSelect">
-      <option value="">Tipo profesional</option>
-      <option value="vet">Veterinario</option>
-      <option value="est">Estética</option>
-    </select>
 
-    <input type="date" id="dateInput">
-    <input type="time" id="timeInput">
+      <!-- Tipo profesional -->
+      <label>Tipo profesional</label>
+      <select id="professionalTypeSelect" required>
+        <option value="">Seleccione tipo</option>
+        <option value="vet">Veterinario</option>
+        <option value="est">Estética</option>
+      </select>
 
-    <button type="submit">Reservar</button>
+      <!-- Profesional -->
+      <label>Profesional (opcional)</label>
+      <select id="professionalSelect">
+        <option value="">Sin preferencia</option>
+      </select>
 
-  </form>
 
-  <p id="bookingMessage"></p>
-</section>
+      <!-- Mascota -->
+      <label>Mascota</label>
+      <input type="text" id="petNameInput" required>
 
-<section id="contact">Contacto</section>
+      <!-- Fecha -->
+      <label>Fecha</label>
+      <input type="date" id="dateInput" required>
+      <label>Turno</label>
+      <select id="timeSelect" required></select>
 
-<footer>© Huellas</footer>
+      <!-- Datos dueño -->
+      <div id="ownerData">
 
-<script src="src/app.js"></script>
+        <h4>Datos del dueño</h4>
+
+        <input type="text" id="ownerName" placeholder="Nombre completo" required>
+
+        <input type="email" id="ownerEmail" placeholder="Email" required>
+
+        <input type="tel" id="ownerPhone" placeholder="Teléfono" required>
+
+        <input type="text" id="ownerId" placeholder="Cédula" required>
+
+      </div>
+
+      <button type="submit">Reservar</button>
+
+    </form>
+
+
+    <p id="bookingMessage"></p>
+  </section>
+
+  <section id="contact">Contacto</section>
+
+  <section id="login">
+    Login
+    <div>
+      <label for="txtUsuario">Ingrese Usuario</label>
+      <br>
+      <input id="txtUsuario" type="text">
+      <br>
+      <label for="txtPassword"> Ingrese Password</label>
+      <br>
+      <input id="txtPassword" type="text">
+      <br>
+      <input id="btnLogin" type="button" value="Ingresar">
+      <p id="loginMessage"></p>
+    </div>
+  </section>
+
+
+  <footer>© Huellas</footer>
+
+  <script type="module" src="src/app.js"></script>
 </body>
+
 </html>
