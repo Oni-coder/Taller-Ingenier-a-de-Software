@@ -18,6 +18,7 @@
       <a href="#services">Servicios</a>
       <a href="#booking">Reservar</a>
       <a href="#contact">Contacto</a>
+      <a href="#login">Login</a>
     </nav>
 
     <button id="burger">☰</button>
@@ -84,30 +85,88 @@
   <section id="booking">
     <form id="bookingForm">
 
-      <select id="serviceSelect"></select>
+      <!-- Servicio -->
 
-      <select id="professionalTypeSelect">
-        <option value="">Tipo profesional</option>
+      <label for="serviceSelect">Servicio</label>
+      <select id="serviceSelect" required>
+        <option value="">Seleccione un servicio</option>
+        <option value="corte">Corte de pelo</option>
+        <option value="banio">Baño</option>
+        <option value="consulta">Consulta veterinaria</option>
+        <option value="control">Control general</option>
+      </select>
+
+
+      <!-- Tipo profesional -->
+      <label>Tipo profesional</label>
+      <select id="professionalTypeSelect" required>
+        <option value="">Seleccione tipo</option>
         <option value="vet">Veterinario</option>
         <option value="est">Estética</option>
       </select>
 
-      <input type="date" id="dateInput">
-      <input type="time" id="timeInput">
+      <!-- Profesional -->
+      <label>Profesional (opcional)</label>
+      <select id="professionalSelect">
+        <option value="">Sin preferencia</option>
+      </select>
+
+
+      <!-- Mascota -->
+      <label>Mascota</label>
+      <input type="text" id="petNameInput" required>
+
+      <!-- Fecha -->
+      <label>Fecha</label>
+      <input type="date" id="dateInput" required>
+      <label>Turno</label>
+      <select id="timeSelect" required></select>
+
+      <!-- Datos dueño -->
+      <div id="ownerData">
+
+        <h4>Datos del dueño</h4>
+
+        <input type="text" id="ownerName" placeholder="Nombre completo" required>
+
+        <input type="email" id="ownerEmail" placeholder="Email" required>
+
+        <input type="tel" id="ownerPhone" placeholder="Teléfono" required>
+
+        <input type="text" id="ownerId" placeholder="Cédula" required>
+
+      </div>
 
       <button type="submit">Reservar</button>
 
     </form>
 
+
     <p id="bookingMessage"></p>
   </section>
-  <section id="contact">
-    <h2>Contacto</h2>
+
+  <section id="contact">Contacto</section>
+
+  <section id="login">
+    Login
+    <div>
+      <label for="txtUsuario">Ingrese Usuario</label>
+      <br>
+      <input id="txtUsuario" type="text">
+      <br>
+      <label for="txtPassword"> Ingrese Password</label>
+      <br>
+      <input id="txtPassword" type="text">
+      <br>
+      <input id="btnLogin" type="button" value="Ingresar">
+      <p id="loginMessage"></p>
+    </div>
   </section>
+
 
   <footer>© Huellas</footer>
 
-  <script src="src/app.js"></script>
+  <script type="module" src="src/app.js"></script>
 </body>
 
 </html>
