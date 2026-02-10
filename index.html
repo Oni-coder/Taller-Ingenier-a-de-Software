@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Veterinaria Huellas</title>
@@ -9,50 +10,104 @@
 
 <body>
 
-<header>
-  <h1>🐾 Huellas</h1>
+  <header>
+    <h1>🐾 Huellas</h1>
 
-  <nav id="menu">
-    <a href="#home">Inicio</a>
-    <a href="#services">Servicios</a>
-    <a href="#booking">Reservar</a>
-    <a href="#contact">Contacto</a>
-  </nav>
+    <nav id="menu">
+      <a href="#home">Inicio</a>
+      <a href="#services">Servicios</a>
+      <a href="#booking">Reservar</a>
+      <a href="#contact">Contacto</a>
+    </nav>
 
-  <button id="burger">☰</button>
-</header>
+    <button id="burger">☰</button>
+  </header>
 
-<section id="home">Home</section>
 
-<section id="services">
-  <div id="servicesGrid"></div>
-</section>
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <div class="center">
+      <div class="servicios-card">
+        <div>
+          <h3>Baño <br> $900</h3>
+          <span class="icon">🛁🐾</span>
+          <p>Baño higiénico con shampoo neutro o medicado (según necesidad), secado profesional y cepillado para
+            mantener el pelaje limpio, brillante y libre de nudos. Ideal para prevenir problemas de piel y eliminar
+            malos olores. Tu mascota disfruta un momento de cuidado en manos expertas.</p>
+        </div>
+        <div>
+          <h3>Corte de pelo <br> $1.200</h3>
+          <span class="icon">🐶✂️</span>
+          <p>Un servicio completo de estilismo canino y felino que incluye recorte, perfilado y arreglo general del
+            manto según la raza y las preferencias del dueño. Nuestro equipo utiliza herramientas seguras y técnicas
+            suaves para garantizar la comodidad de tu mascota, logrando un acabado prolijo, higiénico y saludable.</p>
+        </div>
+        <div>
+          <h3>Consulta veterinaria <br> $1.500</h3>
+          <span class="icon">🩺🐕</span>
+          <p>Revisión clínica completa realizada por un veterinario profesional. Incluye evaluación general del estado
+            de salud, diagnóstico preliminar, recomendaciones de tratamiento y orientación sobre nutrición, vacunas y
+            cuidados generales. Pensado para atender enfermedades, molestias o controles específicos.</p>
+        </div>
+        <div>
+          <h3> Control general <br> $1.000</h3>
+          <span class="icon">❤️‍🩹</span>
+          <p>Chequeo preventivo que permite detectar tempranamente cualquier alteración en la salud de tu mascota.
+            Incluye examen físico, control de peso, revisión de piel, dientes, oídos y estado general. Ideal para
+            mantener un seguimiento periódico y asegurar una vida larga y saludable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="galeria">
+    <div class="galeria">
+      <div>
+        <img src="src/img/galeria-1.jpg" alt="Galeria 1">
+      </div>
+      <div>
+        <img src="src/img/galeria-2.jpg" alt="Galeria 2">
+      </div>
+      <div>
+        <img src="src/img/galeria-3.png" alt="Galeria 3">
+      </div>
+      <div>
+        <img src="src/img/galeria-4.jpg" alt="Galeria 4">
+      </div>
+      <div>
+        <img src="src/img/galeria-5.jpg" alt="Galeria 5">
+      </div>
+      <div>
+        <img src="src/img/galeria-6.jpg" alt="Galeria 6">
+      </div>
+    </div>
+  </section>
+  <section id="booking">
+    <form id="bookingForm">
 
-<section id="booking">
-  <form id="bookingForm">
+      <select id="serviceSelect"></select>
 
-    <select id="serviceSelect"></select>
+      <select id="professionalTypeSelect">
+        <option value="">Tipo profesional</option>
+        <option value="vet">Veterinario</option>
+        <option value="est">Estética</option>
+      </select>
 
-    <select id="professionalTypeSelect">
-      <option value="">Tipo profesional</option>
-      <option value="vet">Veterinario</option>
-      <option value="est">Estética</option>
-    </select>
+      <input type="date" id="dateInput">
+      <input type="time" id="timeInput">
 
-    <input type="date" id="dateInput">
-    <input type="time" id="timeInput">
+      <button type="submit">Reservar</button>
 
-    <button type="submit">Reservar</button>
+    </form>
 
-  </form>
+    <p id="bookingMessage"></p>
+  </section>
+  <section id="contact">
+    <h2>Contacto</h2>
+  </section>
 
-  <p id="bookingMessage"></p>
-</section>
+  <footer>© Huellas</footer>
 
-<section id="contact">Contacto</section>
-
-<footer>© Huellas</footer>
-
-<script src="src/app.js"></script>
+  <script src="src/app.js"></script>
 </body>
+
 </html>

@@ -66,49 +66,85 @@ nav a:hover {
    SECTIONS
 ===================== */
 
-.section {
+section {
   padding: 4rem 1.5rem;
   max-width: 1200px;
   margin: auto;
 }
 
-.section h2 {
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
+section h2 {
+  margin-bottom: 2.5rem;
+  font-size: 4rem;
   color: #2fb9a3;
-}
-
-/* =====================
-   CARDS
-===================== */
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.2rem;
-}
-
-.card {
-  background: white;
-  border-radius: 10px;
-  padding: 1.2rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   text-align: center;
-}
-
-.card img {
-  max-width: 100%;
-  border-radius: 8px;
 }
 
 /* =====================
    SERVICES / PROS GRID
 ===================== */
 
+.servicios-card{
+  display: flex;
+}
+
+.servicios-card div{
+  margin: 0 2% 0 2%;
+  padding: 2%;
+  width: 25%;
+  text-align: center;
+  border: #2fb9a3 2px solid;
+  border-radius: 25px;
+}
+
+.servicios-card div h3{
+  font-size: 1.5rem;
+}
+
+.servicios-card div .icon{
+  font-size: 40px;
+}
+
+.servicios-card div p{
+  font-size: 16px;
+  padding-top: 10px;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
+}
+
+/* =====================
+   GALERIA
+===================== */
+
+.galeria{
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.galeria div img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+.galeria div{
+  position: relative;
+  text-align: center;
+}
+
+.galeria div:nth-child(1){
+  grid-column: span 2;
+}
+.galeria div:nth-child(2){
+  grid-row: span 2;
+}
+.galeria div:nth-child(3){
+  grid-row: span 2;
 }
 
 /* =====================
@@ -181,8 +217,18 @@ footer {
     display: block;
   }
 
-  .section {
+  section {
     padding: 3rem 1rem;
+  }
+
+  .servicios-card{
+    display: flex;
+    flex-direction: column;
+  }
+  .servicios-card div{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 20px;
   }
 
 }
