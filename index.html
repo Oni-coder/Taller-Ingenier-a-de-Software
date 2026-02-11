@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Veterinaria Huellas</title>
@@ -9,40 +10,135 @@
 
 <body>
 
-<header>
-  <h1>🐾 Huellas</h1>
+  <header>
+    <h1>🐾 Huellas</h1>
 
-  <nav id="menu">
-    <a href="#home">Inicio</a>
-    <a href="#services">Servicios</a>
-    <a href="#booking">Reservar</a>
-    <a href="#contact">Contacto</a>
-  </nav>
+    <nav id="menu">
+      <a href="#home">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#booking">Reservar</a>
+      <a href="#contact">Contacto</a>
+      <a href="#login">Login</a>
+    </nav>
 
-  <button id="burger">☰</button>
-</header>
+    <button id="burger">☰</button>
+  </header>
 
-<section id="home">Home</section>
 
-<section id="services">
-  <div id="servicesGrid"></div>
-</section>
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <div class="center">
+      <div class="servicios-card">
+        <div>
+          <h3>Baño <br> $900</h3>
+          <span class="icon">🛁🐾</span>
+          <p>Baño higiénico con shampoo neutro o medicado (según necesidad), secado profesional y cepillado para
+            mantener el pelaje limpio, brillante y libre de nudos. Ideal para prevenir problemas de piel y eliminar
+            malos olores. Tu mascota disfruta un momento de cuidado en manos expertas.</p>
+        </div>
+        <div>
+          <h3>Corte de pelo <br> $1.200</h3>
+          <span class="icon">🐶✂️</span>
+          <p>Un servicio completo de estilismo canino y felino que incluye recorte, perfilado y arreglo general del
+            manto según la raza y las preferencias del dueño. Nuestro equipo utiliza herramientas seguras y técnicas
+            suaves para garantizar la comodidad de tu mascota, logrando un acabado prolijo, higiénico y saludable.</p>
+        </div>
+        <div>
+          <h3>Consulta veterinaria <br> $1.500</h3>
+          <span class="icon">🩺🐕</span>
+          <p>Revisión clínica completa realizada por un veterinario profesional. Incluye evaluación general del estado
+            de salud, diagnóstico preliminar, recomendaciones de tratamiento y orientación sobre nutrición, vacunas y
+            cuidados generales. Pensado para atender enfermedades, molestias o controles específicos.</p>
+        </div>
+        <div>
+          <h3> Control general <br> $1.000</h3>
+          <span class="icon">❤️‍🩹</span>
+          <p>Chequeo preventivo que permite detectar tempranamente cualquier alteración en la salud de tu mascota.
+            Incluye examen físico, control de peso, revisión de piel, dientes, oídos y estado general. Ideal para
+            mantener un seguimiento periódico y asegurar una vida larga y saludable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="galeria">
+    <div class="galeria">
+      <div>
+        <img src="src/img/galeria-1.jpg" alt="Galeria 1">
+      </div>
+      <div>
+        <img src="src/img/galeria-2.jpg" alt="Galeria 2">
+      </div>
+      <div>
+        <img src="src/img/galeria-3.png" alt="Galeria 3">
+      </div>
+      <div>
+        <img src="src/img/galeria-4.jpg" alt="Galeria 4">
+      </div>
+      <div>
+        <img src="src/img/galeria-5.jpg" alt="Galeria 5">
+      </div>
+      <div>
+        <img src="src/img/galeria-6.jpg" alt="Galeria 6">
+      </div>
+    </div>
+  </section>
+  <section id="booking">
+    <form id="bookingForm">
 
-<section id="booking">
-  <form id="bookingForm">
+      <!-- Servicio -->
 
-    <select id="serviceSelect"></select>
+      <label for="serviceSelect">Servicio</label>
+      <select id="serviceSelect" required>
+        <option value="">Seleccione un servicio</option>
+        <option value="corte">Corte de pelo</option>
+        <option value="banio">Baño</option>
+        <option value="consulta">Consulta veterinaria</option>
+        <option value="control">Control general</option>
+      </select>
 
-    <select id="professionalTypeSelect">
-      <option value="">Tipo profesional</option>
-      <option value="vet">Veterinario</option>
-      <option value="est">Estética</option>
-    </select>
 
-    <input type="date" id="dateInput">
-    <input type="time" id="timeInput">
+      <!-- Tipo profesional -->
+      <label>Tipo profesional</label>
+      <select id="professionalTypeSelect" required>
+        <option value="">Seleccione tipo</option>
+        <option value="vet">Veterinario</option>
+        <option value="est">Estética</option>
+      </select>
 
-    <button type="submit">Reservar</button>
+      <!-- Profesional -->
+      <label>Profesional (opcional)</label>
+      <select id="professionalSelect">
+        <option value="">Sin preferencia</option>
+      </select>
+
+
+      <!-- Mascota -->
+      <label>Mascota</label>
+      <input type="text" id="petNameInput" required>
+
+      <!-- Fecha -->
+      <label>Fecha</label>
+      <input type="date" id="dateInput" required>
+      <label>Turno</label>
+      <select id="timeSelect" required></select>
+
+      <!-- Datos dueño -->
+      <div id="ownerData">
+
+        <h4>Datos del dueño</h4>
+
+        <input type="text" id="ownerName" placeholder="Nombre completo" required>
+
+        <input type="email" id="ownerEmail" placeholder="Email" required>
+
+        <input type="tel" id="ownerPhone" placeholder="Teléfono" required>
+
+        <input type="text" id="ownerId" placeholder="Cédula" required>
+
+      </div>
+
+      <button type="submit">Reservar</button>
 
   </form>
 
@@ -60,10 +156,28 @@
 </section>
 
 
-<section id="contact">Contacto</section>
+  <section id="contact">Contacto</section>
 
-<footer>© Huellas</footer>
+  <section id="login">
+    Login
+    <div>
+      <label for="txtUsuario">Ingrese Usuario</label>
+      <br>
+      <input id="txtUsuario" type="text">
+      <br>
+      <label for="txtPassword"> Ingrese Password</label>
+      <br>
+      <input id="txtPassword" type="text">
+      <br>
+      <input id="btnLogin" type="button" value="Ingresar">
+      <p id="loginMessage"></p>
+    </div>
+  </section>
 
-<script type="module" src="src/app.js"></script>
+
+  <footer>© Huellas</footer>
+
+  <script type="module" type="module" src="src/app.js"></script>
 </body>
+
 </html>
