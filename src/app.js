@@ -3,6 +3,12 @@ import {
   crearReserva
 } from "./core/reservas.js";
 
+document.addEventListener("DOMContentLoaded", function () {
+    mostrarMapaVeterinaria();
+});
+
+
+
 /* =====================
    MENU BURGER
 ===================== */
@@ -59,4 +65,28 @@ if (form) {
 
     form.reset();
   });
+  
 }
+
+
+/* =====================
+   MAPA (OpenStreetMap)
+===================== */
+
+function mostrarMapaVeterinaria() {
+    /* ORT Centro - Mercedes y Cuareim (ubicación ficticia) */
+    var lat = -34.9040;
+    var lon = -56.1910;
+    var delta = 0.002;
+
+    var src =
+        "https://www.openstreetmap.org/export/embed.html" +
+        "?bbox=" + (lon - delta) + "," + (lat - delta) + "," +
+        (lon + delta) + "," + (lat + delta) +
+        "&layer=mapnik" +
+        "&marker=" + lat + "," + lon;
+
+    document.getElementById("map").innerHTML =
+        '<iframe loading="lazy" src="' + src + '"></iframe>';
+}
+
