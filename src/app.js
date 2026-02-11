@@ -201,15 +201,9 @@ form?.addEventListener("submit", e => {
 });
 
 //#endregion
-    form.reset();
-  });
-  
-}
 
 
-/* =====================
-   MAPA (OpenStreetMap)
-===================== */
+//#region MAPA
 
 function mostrarMapaVeterinaria() {
     /* ORT Centro - Mercedes y Cuareim (ubicación ficticia) */
