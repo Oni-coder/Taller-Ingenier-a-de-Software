@@ -8,7 +8,7 @@ import {
 } from "./core/reservas.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-    mostrarMapaVeterinaria();
+  mostrarMapaVeterinaria();
 });
 
 
@@ -206,19 +206,36 @@ form?.addEventListener("submit", e => {
 //#region MAPA
 
 function mostrarMapaVeterinaria() {
-    /* ORT Centro - Mercedes y Cuareim (ubicación ficticia) */
-    var lat = -34.9040;
-    var lon = -56.1910;
-    var delta = 0.002;
+  /* ORT Centro - Mercedes y Cuareim (ubicación ficticia) */
+  var lat = -34.9040;
+  var lon = -56.1910;
+  var delta = 0.002;
 
-    var src =
-        "https://www.openstreetmap.org/export/embed.html" +
-        "?bbox=" + (lon - delta) + "," + (lat - delta) + "," +
-        (lon + delta) + "," + (lat + delta) +
-        "&layer=mapnik" +
-        "&marker=" + lat + "," + lon;
+  var src =
+    "https://www.openstreetmap.org/export/embed.html" +
+    "?bbox=" + (lon - delta) + "," + (lat - delta) + "," +
+    (lon + delta) + "," + (lat + delta) +
+    "&layer=mapnik" +
+    "&marker=" + lat + "," + lon;
 
-    document.getElementById("map").innerHTML =
-        '<iframe loading="lazy" src="' + src + '"></iframe>';
+  document.getElementById("map").innerHTML =
+    '<iframe loading="lazy" src="' + src + '"></iframe>';
 }
 
+/*
+Pruebas
+*/
+function suma(a, b) {
+  return a + b;
+}
+
+/*
+Este bloque SOLO se ejecuta en Jest (Node)
+En el navegador, `module` no existe, así que se ignora
+Permite que el mismo archivo funcione en navegador y en Jest
+*/
+if (typeof module !== "undefined") {
+  module.exports = {
+    suma
+  };
+}

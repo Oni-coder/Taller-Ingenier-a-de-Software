@@ -1,4 +1,4 @@
-export function validarReserva(data, reservasExistentes) {
+function validarReserva(data, reservasExistentes) {
 
   if (!data.service) {
     return { ok: false, error: "Debe seleccionar un servicio" };
@@ -33,8 +33,8 @@ export function validarReserva(data, reservasExistentes) {
 }
 
 /* ===================== */
-
-export function crearReserva(data) {
+/* editar */
+function crearReserva(data) {
   return {
     id: crypto.randomUUID(),
     ...data,
@@ -71,4 +71,23 @@ function hayConflicto(fecha, profesionalId, reservas) {
       existente.getTime() === fecha.getTime()
     );
   });
+}
+
+function suma(a, b) {
+
+  return a + b;
+
+}
+/*
+Este bloque SOLO se ejecuta en Jest (Node)
+En el navegador, `module` no existe, así que se ignora
+Permite que el mismo archivo funcione en navegador y en Jest
+*/
+
+if (typeof module !== "undefined" && module.exports) {
+
+  module.exports = {
+    suma
+  };
+
 }
