@@ -239,7 +239,7 @@ footer {
 ===================== */
 
 #mapa {
-    padding: 40px 0;
+    padding: 40px 1.5rem;
     background-color: #f7f7f7;
 }
 
@@ -269,9 +269,6 @@ footer {
   font-weight: 500;
 }
 
-.pin-veterinaria:hover .pin-label {
-  opacity: 1;
-}
 
 
 /* Responsive para celulares */

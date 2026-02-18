@@ -1,4 +1,4 @@
-function validarReserva(data, reservasExistentes) {
+export function validarReserva(data, reservasExistentes) {
 
   if (!data.service) {
     return { ok: false, error: "Debe seleccionar un servicio" };
@@ -34,7 +34,7 @@ function validarReserva(data, reservasExistentes) {
 
 /* ===================== */
 /* editar */
-function crearReserva(data) {
+export function crearReserva(data) {
   return {
     id: crypto.randomUUID(),
     ...data,
