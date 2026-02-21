@@ -19,8 +19,10 @@
       <a href="#galeria">Galeria</a>
       <a href="#booking">Reservar</a>
       <a href="#mapa">Ubicacion</a>
+      <a href="#listaReservasSection">Mis Reservas</a>
       <a href="#contact">Contacto</a>
       <a href="#login">Login</a>
+      
     </nav>
 
     <button id="burger">☰</button>
@@ -154,6 +156,26 @@
   <p class="map-caption">
     📍 Veterinaria Huellas – Mercedes y Cuareim
   </p>
+</section>
+
+<section id="listaReservasSection">
+  <h2>Mis Reservas</h2>
+    <input type="date" id="filtroFecha">
+  <select id="filtroServicio">
+    <option value="">Todos los servicios</option>
+    <option value="corte">Corte de pelo</option>
+    <option value="banio">Baño</option>
+    <option value="consulta">Consulta veterinaria</option>
+    <option value="control">Control general</option>
+  </select>
+  <select id="filtroEstado">
+    <option value="">Todos</option>
+    <option value="confirmada">Confirmada</option>
+    <option value="cancelada">Cancelada</option>
+  </select>
+
+  <button id="btnFiltrar">Filtrar</button>
+  <div id="listaReservas"></div>
 </section>
 
 

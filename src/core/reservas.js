@@ -1,4 +1,4 @@
-export function validarReserva(data, reservasExistentes) {
+ function validarReserva(data, reservasExistentes) {
 
   if (!data.service) {
     return { ok: false, error: "Debe seleccionar un servicio" };
@@ -24,7 +24,7 @@ export function validarReserva(data, reservasExistentes) {
 
   if (
     data.professionalId &&
-    hayConflicto(fechaHora, data.professionalId, reservasExistentes)
+    hayConflicto(data.date, data.time, data.professionalId, reservasExistentes)
   ) {
     return { ok: false, error: "Profesional ocupado en ese horario" };
   }
@@ -34,7 +34,7 @@ export function validarReserva(data, reservasExistentes) {
 
 /* ===================== */
 /* editar */
-export function crearReserva(data) {
+ function crearReserva(data) {
   return {
     id: crypto.randomUUID(),
     ...data,
@@ -62,15 +62,42 @@ function dentroAntelacion(fecha) {
   max.setMonth(max.getMonth() + 2);
   return fecha <= max;
 }
+function hayConflicto(date, time, profesionalId, reservas) {
 
-function hayConflicto(fecha, profesionalId, reservas) {
-  return reservas.some(r => {
-    const existente = new Date(`${r.date}T${r.time}`);
-    return (
-      r.professionalId === profesionalId &&
-      existente.getTime() === fecha.getTime()
-    );
-  });
+  return reservas.some(r =>
+    r.professionalId === profesionalId &&
+    r.date === date &&
+    r.time === time
+  );
+}
+
+ function filtrarReservas(reservas, filtros, usuario){
+
+  let resultado = [...reservas];
+
+  if (!usuario) return [];
+
+  if (usuario.rol === "cliente") {
+    resultado = resultado.filter(r => r.usuario === usuario.usuario);
+  }
+
+  if (usuario.rol === "trabajador") {
+    resultado = resultado.filter(r => r.professionalId === usuario.id);
+  }
+
+  if (filtros.fecha) {
+    resultado = resultado.filter(r => r.date === filtros.fecha);
+  }
+
+  if (filtros.servicio) {
+    resultado = resultado.filter(r => r.service === filtros.servicio);
+  }
+
+  if (filtros.estado) {
+    resultado = resultado.filter(r => r.estado === filtros.estado);
+  }
+
+  return resultado;
 }
 
 function suma(a, b) {
@@ -84,10 +111,14 @@ En el navegador, `module` no existe, así que se ignora
 Permite que el mismo archivo funcione en navegador y en Jest
 */
 
-if (typeof module !== "undefined" && module.exports) {
 
-  module.exports = {
-    suma
-  };
 
-}
+module.exports = {
+  validarReserva,
+  crearReserva,
+  filtrarReservas,
+  suma
+};
+
+
+

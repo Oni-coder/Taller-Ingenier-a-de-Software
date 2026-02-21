@@ -2,13 +2,15 @@
    IMPORTS
 ===================== */
 
-import {
+const {
   validarReserva,
-  crearReserva
-} from "./core/reservas.js";
+  crearReserva,
+  filtrarReservas
+} = require("./core/reservas");
 
 document.addEventListener("DOMContentLoaded", function () {
   mostrarMapaVeterinaria();
+  mostrarReservas();
 });
 
 
@@ -188,11 +190,22 @@ form?.addEventListener("submit", e => {
     msg.style.color = "red";
     return;
   }
+  if (!data.service || !data.date || !data.time) {
+  msg.textContent = "Debe completar todos los campos";
+  msg.style.color = "red";
+  return;
+}
 
-  const nueva = crearReserva(data);
+const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
+
+const nueva = crearReserva({
+  ...data,
+  usuario: usuario.usuario
+});
 
   reservas.push(nueva);
   localStorage.setItem("reservas", JSON.stringify(reservas));
+  mostrarReservas();
 
   msg.textContent = "✅ Turno reservado correctamente";
   msg.style.color = "green";
@@ -222,6 +235,52 @@ function mostrarMapaVeterinaria() {
     '<iframe loading="lazy" src="' + src + '"></iframe>';
 }
 
+const btnFiltrar = document.getElementById("btnFiltrar");
+
+btnFiltrar?.addEventListener("click", mostrarReservas);
+
+//Mostrar reservas
+function mostrarReservas() {
+
+  const contenedor = document.getElementById("listaReservas");
+  const reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+  const usuario = JSON.parse(localStorage.getItem("usuarioLogueado"));
+
+  if (!usuario) {
+    contenedor.innerHTML = "<p>Debe iniciar sesión</p>";
+    return;
+  }
+
+  const filtros = {
+    fecha: document.getElementById("filtroFecha")?.value || null,
+    servicio: document.getElementById("filtroServicio")?.value || null,
+    estado: document.getElementById("filtroEstado")?.value || null
+  };
+
+  const reservasFiltradas = filtrarReservas(reservas, filtros, usuario);
+
+  contenedor.innerHTML = "";
+
+  if (reservasFiltradas.length === 0) {
+    contenedor.innerHTML = "<p>No hay reservas.</p>";
+    return;
+  }
+
+  reservasFiltradas.forEach(r => {
+    const div = document.createElement("div");
+
+    div.innerHTML = `
+      <p><strong>Fecha:</strong> ${r.date}</p>
+      <p><strong>Hora:</strong> ${r.time}</p>
+      <p><strong>Servicio:</strong> ${r.service}</p>
+      <p><strong>Estado:</strong> ${r.estado}</p>
+      <hr>
+    `;
+
+    contenedor.appendChild(div);
+  });
+}
+
 /*
 Pruebas
 */
@@ -235,7 +294,10 @@ En el navegador, `module` no existe, así que se ignora
 Permite que el mismo archivo funcione en navegador y en Jest
 */
 if (typeof module !== "undefined") {
-  module.exports = {
-    suma
-  };
+module.exports = {
+  validarReserva,
+  crearReserva,
+  filtrarReservas,
+  suma
+};
 }
