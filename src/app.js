@@ -284,20 +284,10 @@ function mostrarReservas() {
 /*
 Pruebas
 */
-function suma(a, b) {
-  return a + b;
-}
+
 
 /*
 Este bloque SOLO se ejecuta en Jest (Node)
 En el navegador, `module` no existe, así que se ignora
 Permite que el mismo archivo funcione en navegador y en Jest
 */
-if (typeof module !== "undefined") {
-module.exports = {
-  validarReserva,
-  crearReserva,
-  filtrarReservas,
-  suma
-};
-}
