@@ -2,11 +2,11 @@
    IMPORTS
 ===================== */
 
-const {
+import {
   validarReserva,
   crearReserva,
   filtrarReservas
-} = require("./core/reservas");
+} from "./core/reservas.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   mostrarMapaVeterinaria();

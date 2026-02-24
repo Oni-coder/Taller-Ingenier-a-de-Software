@@ -1,4 +1,4 @@
- function validarReserva(data, reservasExistentes) {
+export function validarReserva(data, reservasExistentes) {
 
   if (!data.service) {
     return { ok: false, error: "Debe seleccionar un servicio" };
@@ -34,7 +34,7 @@
 
 /* ===================== */
 /* editar */
- function crearReserva(data) {
+ export function crearReserva(data) {
   return {
     id: crypto.randomUUID(),
     ...data,
@@ -71,7 +71,7 @@ function hayConflicto(date, time, profesionalId, reservas) {
   );
 }
 
- function filtrarReservas(reservas, filtros, usuario){
+export function filtrarReservas(reservas, filtros, usuario){
 
   let resultado = [...reservas];
 
