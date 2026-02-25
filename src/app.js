@@ -1,12 +1,3 @@
-/* =====================
-   IMPORTS
-===================== */
-
-import {
-  validarReserva,
-  crearReserva,
-  filtrarReservas
-} from "./core/reservas.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   mostrarMapaVeterinaria();

@@ -1,4 +1,6 @@
-export function validarReserva(data, reservasExistentes) {
+const crypto = require("crypto");
+
+function validarReserva(data, reservasExistentes) {
 
   if (!data.service) {
     return { ok: false, error: "Debe seleccionar un servicio" };
@@ -34,7 +36,7 @@ export function validarReserva(data, reservasExistentes) {
 
 /* ===================== */
 /* editar */
- export function crearReserva(data) {
+function crearReserva(data) {
   return {
     id: crypto.randomUUID(),
     ...data,
@@ -71,7 +73,7 @@ function hayConflicto(date, time, profesionalId, reservas) {
   );
 }
 
-export function filtrarReservas(reservas, filtros, usuario){
+function filtrarReservas(reservas, filtros, usuario){
 
   let resultado = [...reservas];
 
@@ -112,12 +114,13 @@ Permite que el mismo archivo funcione en navegador y en Jest
 */
 
 
-if(typeof module !== "undefined")
-module.exports = {
-  validarReserva,
-  crearReserva,
-  filtrarReservas
-};
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = {
+    validarReserva,
+    crearReserva,
+    filtrarReservas
+  };
+}
 
 
 
