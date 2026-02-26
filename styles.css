@@ -150,6 +150,9 @@ section h2 {
 /* =====================
    FORMULARIOS
 ===================== */
+#bookingForm{
+  margin: auto;
+}
 
 form {
   max-width: 500px;

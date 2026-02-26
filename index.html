@@ -22,7 +22,7 @@
       <a href="#listaReservasSection">Mis Reservas</a>
       <a href="#contact">Contacto</a>
       <a href="#login">Login</a>
-      
+
     </nav>
 
     <button id="burger">☰</button>
@@ -87,6 +87,7 @@
     </div>
   </section>
   <section id="booking">
+    <h2>Reservar</h2>
     <form id="bookingForm">
 
       <!-- Servicio -->
@@ -143,46 +144,42 @@
 
       <button type="submit">Reservar</button>
 
-  </form>
+    </form>
 
-  <p id="bookingMessage"></p>
-</section>
+    <p id="bookingMessage"></p>
+  </section>
 
-<section id="mapa">
-  <h2>📍 Dónde estamos</h2>
+  <section id="mapa">
+    <h2>📍 Dónde estamos</h2>
 
-  <div id="map"></div>
+    <div id="map"></div>
 
-  <p class="map-caption">
-    📍 Veterinaria Huellas – Mercedes y Cuareim
-  </p>
-</section>
+    <p class="map-caption">
+      📍 Veterinaria Huellas – Mercedes y Cuareim
+    </p>
+  </section>
 
-<section id="listaReservasSection">
-  <h2>Mis Reservas</h2>
+  <section id="listaReservasSection">
+    <h2>Mis Reservas</h2>
     <input type="date" id="filtroFecha">
-  <select id="filtroServicio">
-    <option value="">Todos los servicios</option>
-    <option value="corte">Corte de pelo</option>
-    <option value="banio">Baño</option>
-    <option value="consulta">Consulta veterinaria</option>
-    <option value="control">Control general</option>
-  </select>
-  <select id="filtroEstado">
-    <option value="">Todos</option>
-    <option value="confirmada">Confirmada</option>
-    <option value="cancelada">Cancelada</option>
-  </select>
+    <select id="filtroServicio">
+      <option value="">Todos los servicios</option>
+      <option value="corte">Corte de pelo</option>
+      <option value="banio">Baño</option>
+      <option value="consulta">Consulta veterinaria</option>
+      <option value="control">Control general</option>
+    </select>
+    <select id="filtroEstado">
+      <option value="">Todos</option>
+      <option value="confirmada">Confirmada</option>
+      <option value="cancelada">Cancelada</option>
+    </select>
 
-  <button id="btnFiltrar">Filtrar</button>
-  <div id="listaReservas"></div>
-</section>
-
-
-  <section id="contact">Contacto</section>
-
+    <button id="btnFiltrar">Filtrar</button>
+    <div id="listaReservas"></div>
+  </section>
   <section id="login">
-    Login
+    <h2>Login</h2>
     <div>
       <label for="txtUsuario">Ingrese Usuario</label>
       <br>
