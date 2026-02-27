@@ -18,6 +18,10 @@ body {
   color: #222;
 }
 
+a {
+  color: #2fb9a3;
+}
+
 /* =====================
    HEADER + NAV
 ===================== */
@@ -70,6 +74,7 @@ section {
   padding: 4rem 1.5rem;
   max-width: 1200px;
   margin: auto;
+  background: #f3f3f3;
 }
 
 section h2 {
@@ -166,7 +171,7 @@ form select,
 form input,
 form button {
   width: 100%;
-  margin-top: 0.8rem;
+  margin: 0.4rem 0 1.2rem 0;
   padding: 0.7rem;
   font-size: 1rem;
 }
@@ -182,17 +187,46 @@ form button {
 form button:hover {
   background: #27a08d;
 }
+form label{
+  margin-top: 10px;
+}
 
 /* =====================
    FOOTER
 ===================== */
 
-footer {
-  background: #222;
-  color: white;
-  text-align: center;
-  padding: 1.5rem;
-  margin-top: 3rem;
+footer{
+  display: flex;
+  background-color: #222;
+  padding: 20px;
+  line-height: 0;
+}
+
+footer div:first-child {
+  margin: auto;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 1200px;
+}
+
+footer p{
+  font-size: 1em;
+  align-content: center;
+  color: #fff;
+}
+
+.social{
+  align-content: center;
+}
+
+.social img{
+  padding-left: 10px;
+  width: 42px;
+}
+
+footer td{
+  padding: 10px 0;
 }
 
 /* =====================
@@ -243,7 +277,6 @@ footer {
 
 #mapa {
     padding: 40px 1.5rem;
-    background-color: #f7f7f7;
 }
 
 #map {
