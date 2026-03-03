@@ -1,5 +1,3 @@
-const crypto = require("crypto");
-
 function validarReserva(data, reservasExistentes) {
 
   if (!data.service) {
@@ -38,7 +36,7 @@ function validarReserva(data, reservasExistentes) {
 /* editar */
 function crearReserva(data) {
   return {
-    id: crypto.randomUUID(),
+    id: Date.now().toString(),
     ...data,
     duration: 30,
     estado: "confirmada"
